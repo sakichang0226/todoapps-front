@@ -7,7 +7,7 @@ function TodoCard(props: TodoCardProps) {
   
   return (
     <>
-      <Card className={style.card}>
+      <Card className={style.card} sx={{ margin : 1 }}>
         <CardHeader 
           title={props.title}
           titleTypographyProps={{ textAlign: "left" }}
