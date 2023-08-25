@@ -14,3 +14,10 @@ export const Default: StoryObj<typeof TodoMenuButton> = {
     userName: "testUser"
   } as TodoMenuProps,
 };
+
+export const Login: StoryObj<typeof TodoMenuButton> = {
+  args: {
+    isLogin: true,
+    userName: "testUser"
+  } as TodoMenuProps,
+};
