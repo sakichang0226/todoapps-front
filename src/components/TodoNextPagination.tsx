@@ -6,11 +6,17 @@ import TodoPaginationProps from '../interface/TodoPaginationProps';
 function TodoNextPagination(props: TodoPaginationProps) {
   
   return(
-    <div>
-      <IconButton disabled={ !props.exclusiveStartKey ? true : false }>
+    <>
+      <IconButton 
+        sx={{
+          "width": "40px",
+          "height": "40px"
+        }}
+        disabled={ !props.exclusiveStartKey ? true : false }
+      >
         <ArrowForwardIosIcon color={ props.exclusiveStartKey ? "action" : "disabled" }  />
       </IconButton>
-    </div>
+    </>
     );
   
 }
