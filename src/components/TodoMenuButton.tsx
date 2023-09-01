@@ -1,21 +1,27 @@
 import React from 'react';
-import useState from 'react';
+import { useState } from 'react';
 import { IconButton, Menu, MenuItem, Divider, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CreateIcon from '@mui/icons-material/Create';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import LoginIcon from '@mui/icons-material/Login';
 import TodoMenuProps from '../interface/TodoMenuProps';
+import { useAppDispatch } from '../redux/hooks';
+import { open } from '../redux/slice/common';
 
 function TodoMenuButton(props: TodoMenuProps){
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+  const isOpen = Boolean(anchorEl);
+  const dispatch = useAppDispatch();
+  
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
   
   return (
     <>
@@ -30,7 +36,7 @@ function TodoMenuButton(props: TodoMenuProps){
         <MenuIcon />
       </IconButton>
       <Menu 
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         anchorEl={anchorEl}
         anchorOrigin={{
@@ -47,7 +53,7 @@ function TodoMenuButton(props: TodoMenuProps){
           <>
             <MenuItem>{props.userName}</MenuItem>
             <Divider />
-            <MenuItem>
+            <MenuItem onClick={ ()=> dispatch(open()) }>
               <CreateIcon sx={{ mr : 1 }}/>
               <Typography variant='body1'>Create Todo</Typography>
             </MenuItem> 
