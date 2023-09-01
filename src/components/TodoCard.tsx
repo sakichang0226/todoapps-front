@@ -3,8 +3,12 @@ import { Card,Typography,CardHeader,CardContent,IconButton,Button } from '@mui/m
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import style from "../css/TodoCard.module.css"
 import TodoCardProps from "../interface/TodoCardProps"
+import { useAppDispatch } from '../redux/hooks';
+import { open } from '../redux/slice/common';
 
 function TodoCard(props: TodoCardProps) {
+  
+  const dispatch = useAppDispatch();
   
   return (
     <>
@@ -34,7 +38,12 @@ function TodoCard(props: TodoCardProps) {
             justifyContent: 'right'
           }}
         >
-          <Button variant="text">詳細を見る</Button>
+          <Button 
+            variant="text"
+            onClick={()=> dispatch(open())}
+          >
+            詳細を見る
+          </Button>
         </CardContent>
       </Card>
     </>
