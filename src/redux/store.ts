@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { modalSlice }  from './slice/common';
+import { modalSlice, deleteDialogSlice }  from './slice/common';
 
 export const store = configureStore({
   reducer: {
-    modal: modalSlice.reducer
+    modal: modalSlice.reducer,
+    dialog: deleteDialogSlice.reducer
   }
 });
 

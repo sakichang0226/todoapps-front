@@ -7,7 +7,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import LoginIcon from '@mui/icons-material/Login';
 import TodoMenuProps from '../interface/TodoMenuProps';
 import { useAppDispatch } from '../redux/hooks';
-import { open } from '../redux/slice/common';
+import { open } from '../redux/actions/modal';
 
 function TodoMenuButton(props: TodoMenuProps){
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

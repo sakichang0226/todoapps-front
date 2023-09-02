@@ -1,13 +1,13 @@
 import React from 'react';
 import { Modal } from '@mui/material';
 import TodoDetailCard from './TodoDetailCard';
-import TodoModalProps from '../interface/TodoModalProps';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
-import { close } from '../redux/slice/common';
+import { close } from '../redux/actions/modal';
 
-const TodoModal = (props: TodoModalProps) => {
+const TodoModal = () => {
   
   const isOpen = useAppSelector(state => state.modal.isOpen);
+  const todo = useAppSelector(state => state.modal.todo);
   const dispatch = useAppDispatch();
   
   const handleClose = () => {
@@ -22,7 +22,7 @@ const TodoModal = (props: TodoModalProps) => {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <TodoDetailCard {...props.todo} />
+        <TodoDetailCard todo={todo} />
       </Modal>
     </>
     )
