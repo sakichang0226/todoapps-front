@@ -4,7 +4,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import style from "../css/TodoCard.module.css"
 import TodoCardProps from "../interface/TodoCardProps"
 import { useAppDispatch } from '../redux/hooks';
-import { open } from '../redux/slice/common';
+import { open,openDeleteDialog } from '../redux/actions/modal';
 
 function TodoCard(props: TodoCardProps) {
   
@@ -17,7 +17,7 @@ function TodoCard(props: TodoCardProps) {
           title={
             <Typography variant="h5">
               {props.title}
-              <IconButton>
+              <IconButton onClick={()=> dispatch(openDeleteDialog(props.id))}>
                 <DeleteForeverIcon />
               </IconButton>
             </Typography>
@@ -40,7 +40,7 @@ function TodoCard(props: TodoCardProps) {
         >
           <Button 
             variant="text"
-            onClick={()=> dispatch(open())}
+            onClick={()=> dispatch(open(props))}
           >
             詳細を見る
           </Button>
