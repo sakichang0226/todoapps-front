@@ -1,6 +1,6 @@
 import TodoCardProps from './TodoCardProps';
 
-interface TodoModalProps {
+interface TodoDetailProps {
   todo?: TodoCardProps;
 }
-export default TodoModalProps;
+export default TodoDetailProps;

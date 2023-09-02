@@ -9,27 +9,27 @@ import {
         Input,
         Button
       } from '@mui/material';
-import TodoCardProps from '../interface/TodoCardProps';
+import TodoDetailProps from '../interface/TodoDetailProps';
 
-const TodoDetailCard = (props: TodoCardProps) => {
+const TodoDetailCard = (props: TodoDetailProps) => {
   return(
     <>
       <Card sx={{ 
-        maxWidth: "650px",
-        position: 'absolute',
+        position: 'absolute' as 'absolute',
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        width: 650
       }}>
         <Input 
           sx={{ display: "none" }}
-          defaultValue={props.id}
+          defaultValue={props.todo?.id}
         />
         <CardHeader 
           title={
             <TextField 
               variant="standard" 
-              defaultValue={props.title}
+              defaultValue={props.todo?.title}
               inputProps={{style: {fontSize: "24px"}}} 
             />
           }
@@ -43,12 +43,12 @@ const TodoDetailCard = (props: TodoCardProps) => {
             align="right"
             sx={{ mb:"33px" }}
           >
-            {props.created_at}/{props.updated_at} 
+            {props.todo?.created_at} {props.todo?.updated_at} 
           </Typography>
           <TextField 
               multiline
               fullWidth={true}
-              defaultValue={props.content}
+              defaultValue={props.todo?.content}
               rows={5}
             />
           <Button 
