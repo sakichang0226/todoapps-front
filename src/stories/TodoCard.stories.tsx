@@ -1,9 +1,18 @@
 import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
 import  TodoCard  from '../components/TodoCard';
 import  TodoCardList  from '../components/TodoCard';
 
 const meta: Meta<typeof TodoCardList> = {
   component: TodoCard,
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    )]
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
