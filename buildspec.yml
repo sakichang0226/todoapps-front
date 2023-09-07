@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - yarn install
+  build:
+    commands:
+      - yarn build
+  post_build:
+    commands:
+      - aws s3 sync app/build s3://todoapps-front
+      - aws cloudfront create-invalidation --distribution-id "E2PV60U82YN75T" --paths "/index.html"
+      
+cache:
+  paths:
+    - app/node_modules/**/*
