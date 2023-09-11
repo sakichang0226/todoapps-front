@@ -11,7 +11,6 @@ import { open } from '../redux/actions/modal';
 
 function TodoMenuButton(props: TodoMenuProps){
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const isOpen = Boolean(anchorEl);
   const dispatch = useAppDispatch();
   

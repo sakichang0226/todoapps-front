@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -22,8 +23,11 @@ const TodoDeleteDialog = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"選択したTodoを削除しますか?"}{key}
+          {"選択したTodoを削除しますか?"}
         </DialogTitle>
+        <DialogContent>
+          <DialogContentText>{key}</DialogContentText>
+        </DialogContent>
         <DialogActions>
           <Button onClick={()=> dispatch(disAgree())}>Disagree</Button>
           <Button onClick={()=> dispatch(agree())} autoFocus>

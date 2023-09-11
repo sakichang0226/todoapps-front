@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container,Grid } from '@mui/material';
+import { Container } from '@mui/material';
 import TodoCard from "../components/TodoCard"
 import TodoCardProps from "../interface/TodoCardProps"
-import style from "../css/TodoCardList.module.css";
 
 function TodoCardList(todos : Array<TodoCardProps>) {
   return (
